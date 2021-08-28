@@ -1,4 +1,4 @@
-import { Page,expect } from "@playwright/test";
+import { Page, expect } from "@playwright/test";
 
 export class BarboraCheckoutPage {
 
@@ -28,7 +28,7 @@ export class BarboraCheckoutPage {
     private async getDeliveryTimeTableCellTexts() {
         const columns = await (await this.checkoutDeliveryTable()).$$('//div[@class="b-deliverytime--col"]//div')
         const tableTexts: Array<string> = []
-        for(let i = 0; i < columns.length; i++) {
+        for (let i = 0; i < columns.length; i++) {
             tableTexts.push(await columns[i].textContent())
         }
         return tableTexts

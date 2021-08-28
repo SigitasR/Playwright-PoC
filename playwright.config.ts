@@ -2,22 +2,21 @@ import { PlaywrightTestConfig } from '@playwright/test';
 
 const config: PlaywrightTestConfig = {
 
-    timeout: 20000,
+    timeout: 60000,
     use: {
         baseURL: 'https://barbora.lt',
         video: 'off',
         screenshot: 'on',
-        headless: false        , 
-        
-    
+        headless: false
     },
+    reporter: [['./node_modules/allure-playwright'], ['line']],
 
     projects: [
         {
             name: 'chromium',
             use: {
                 browserName: 'chromium'
-            }, 
+            },
         },
 
         {
