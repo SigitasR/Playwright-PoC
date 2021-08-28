@@ -47,7 +47,7 @@ test.describe('Barbora tests', () => {
     })
 
     test.afterEach(async ({ browserName }) => {
-        console.log(`fuck ${browserName}`)
+        console.log(`${browserName}`)
     })
 
 })
