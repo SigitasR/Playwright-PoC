@@ -11,6 +11,7 @@ export class BarboraCartSidebar {
         this.page = page
     }
 
+    // TODO: implement some assert
     async checkFirstItemInCart() {
         console.log(await (await this.cartItems())[0].textContent())
     }

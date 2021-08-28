@@ -15,7 +15,8 @@ const config: PlaywrightTestConfig = {
         {
             name: 'chromium',
             use: {
-                browserName: 'chromium'
+                browserName: 'chromium', 
+                video: 'on'
             },
         },
 
@@ -23,6 +24,7 @@ const config: PlaywrightTestConfig = {
             name: 'firefox',
             use: {
                 browserName: 'firefox',
+                video: 'on'
             },
         },
     ],
