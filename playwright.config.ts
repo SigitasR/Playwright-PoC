@@ -6,8 +6,7 @@ const config: PlaywrightTestConfig = {
     use: {
         baseURL: 'https://barbora.lt',
         video: 'off',
-        screenshot: 'on',
-        headless: false
+        screenshot: 'on'
     },
     reporter: [['./node_modules/allure-playwright'], ['line']],
 
@@ -16,7 +15,8 @@ const config: PlaywrightTestConfig = {
             name: 'chromium',
             use: {
                 browserName: 'chromium', 
-                video: 'on'
+                video: 'on',
+                headless: false
             },
         },
 
@@ -24,7 +24,17 @@ const config: PlaywrightTestConfig = {
             name: 'firefox',
             use: {
                 browserName: 'firefox',
-                video: 'on'
+                video: 'on',
+                headless: false
+            },
+        },
+        
+        {
+            name: 'chromium-headless',
+            use: {
+                browserName: 'chromium',
+                video: 'on',
+                headless: true
             },
         },
     ],

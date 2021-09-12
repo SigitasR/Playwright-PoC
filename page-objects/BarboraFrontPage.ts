@@ -1,5 +1,5 @@
 import { Page } from "@playwright/test";
-import { BarboraLoginModal } from "./components/BarboraloginModal";
+import { BarboraLoginModal } from "./components/BarboraLoginModal";
 
 export class BarboraFrontPage {
 
