@@ -1,14 +1,11 @@
-import { Page } from "@playwright/test";
+import {Page} from "@playwright/test";
 
 export class BarboraAgeModal {
 
     private modalBody = 'div.b-alert--modal div.modal-content'
     private over20Button = 'button.c-btn'
 
-    private readonly page: Page
-
-    constructor(page: Page) {
-        this.page = page
+    constructor(private readonly page: Page) {
     }
 
     async clickOver20Button() {

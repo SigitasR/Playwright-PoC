@@ -1,14 +1,11 @@
-import { Page } from "@playwright/test";
+import {Page} from "@playwright/test";
 
 export class BarboraCartSidebar {
 
     private cartSidebar = 'div.b-cart--scrollable-blocks-wrap--cart-content'
     private cartItems = 'div.b-next-cart-item'
 
-    private readonly page: Page
-
-    constructor(page: Page) {
-        this.page = page
+    constructor(private readonly page: Page) {
     }
 
     // TODO: implement some assert

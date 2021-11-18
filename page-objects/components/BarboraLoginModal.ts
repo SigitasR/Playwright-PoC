@@ -6,10 +6,7 @@ export class BarboraLoginModal {
     private passwordInput = 'id=password'
     private loginModalButton = 'button[type=submit]'
 
-    private readonly page: Page
-
-    constructor(page: Page) {
-        this.page = page
+    constructor(private readonly page: Page) {
     }
 
     async fillEmail(email: string) {

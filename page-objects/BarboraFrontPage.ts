@@ -12,10 +12,7 @@ export class BarboraFrontPage {
     private buyButton = 'div.b-sidebar-bottom button.b-sidebar-bottom--purchase-btn'
     private searchInput = 'header input.b-search'
 
-    readonly page: Page
-
-    constructor(page: Page) {
-        this.page = page
+    constructor(private readonly page: Page) {
         this.loginModal = new BarboraLoginModal(this.page)
     }
 

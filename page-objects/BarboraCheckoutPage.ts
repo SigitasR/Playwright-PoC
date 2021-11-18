@@ -1,4 +1,4 @@
-import { Page, expect } from "@playwright/test";
+import {Page, expect} from "@playwright/test";
 
 export class BarboraCheckoutPage {
 
@@ -6,10 +6,7 @@ export class BarboraCheckoutPage {
     private checkoutCartTable = 'table.b-checkout--tableview'
     private checkoutDeliveryTable = 'div.b-deliverytime--body-checkout'
 
-    readonly page: Page
-
-    constructor(page: Page) {
-        this.page = page
+    constructor(private readonly page: Page) {
     }
 
     async clickNextButton() {

@@ -10,10 +10,7 @@ export class BarboraProductPage {
     private itemPrice = 'div.b-product-info--price-and-quantity span[itemprop="price"]'
     private addToCartButton = 'div.b-product-info--price-and-quantity div.b-product-cart-link button.c-btn--brand-primary'
 
-    private readonly page: Page
-
-    constructor(page: Page) {
-        this.page = page
+    constructor(private readonly page: Page) {
         this.ageModal = new BarboraAgeModal(this.page)
         this.cartSidebar = new BarboraCartSidebar(this.page)
     }

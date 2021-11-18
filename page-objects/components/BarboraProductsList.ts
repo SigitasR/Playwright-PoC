@@ -5,10 +5,7 @@ export class BarboraProductsList {
     private productListWrapper = 'div.b-products-list--wrapper'
     private productItems = 'div.b-product--wrap'
 
-    private readonly page: Page
-
-    constructor(page: Page) {
-        this.page = page
+    constructor(private readonly page: Page) {
     }
 
     async clickProduct(productNumber: number = 0) {
