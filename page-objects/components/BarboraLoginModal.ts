@@ -1,10 +1,10 @@
-import { Page } from "@playwright/test";
+import {Page} from "@playwright/test";
 
 export class BarboraLoginModal {
 
     private emailInput = 'id=email'
-    private passwordInput = async () => this.page.locator('id=password')
-    private loginModalButton = async () => this.page.locator("button[type=submit]")
+    private passwordInput = 'id=password'
+    private loginModalButton = 'button[type=submit]'
 
     private readonly page: Page
 
@@ -13,17 +13,21 @@ export class BarboraLoginModal {
     }
 
     async fillEmail(email: string) {
-        await this.page.locator(this.emailInput).fill(email)
-        //await (await this.emailInput()).fill(email)
+        await this.page.locator(this.emailInput)
+            .fill(email)
     }
 
     async fillPassword(password: string) {
-        await (await this.passwordInput()).fill(password)
+        await this.page.locator(this.passwordInput)
+            .fill(password)
     }
 
     async clickLoginButton() {
-        await (await this.loginModalButton()).click()
-        await this.page.waitForSelector('button[type=submit]', {state: 'detached'})
+        await this.page.locator(this.loginModalButton)
+            .click()
+
+        await this.page
+            .waitForSelector(this.loginModalButton, {state: 'detached'})
     }
 
 }

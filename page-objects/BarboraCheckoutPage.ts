@@ -2,9 +2,9 @@ import { Page, expect } from "@playwright/test";
 
 export class BarboraCheckoutPage {
 
-    private checkoutNextButton = async () => this.page.locator('.b-checkout--continue-btn')
-    private checkoutCartTable = async () => this.page.locator("table.b-checkout--tableview")
-    private checkoutDeliveryTable = async () => this.page.waitForSelector("div.b-deliverytime--body-checkout")
+    private checkoutNextButton = '.b-checkout--continue-btn'
+    private checkoutCartTable = 'table.b-checkout--tableview'
+    private checkoutDeliveryTable = 'div.b-deliverytime--body-checkout'
 
     readonly page: Page
 
@@ -13,11 +13,14 @@ export class BarboraCheckoutPage {
     }
 
     async clickNextButton() {
-        await (await this.checkoutNextButton()).click()
+        await this.page
+            .locator(this.checkoutNextButton)
+            .click()
     }
 
     async lookForCartTable() {
-        await expect(await this.checkoutCartTable()).toBeVisible()
+        await expect(await this.page.locator(this.checkoutCartTable))
+            .toBeVisible()
     }
 
     async checkDeliveryTable() {
@@ -26,7 +29,7 @@ export class BarboraCheckoutPage {
     }
 
     private async getDeliveryTimeTableCellTexts() {
-        const columns = await (await this.checkoutDeliveryTable()).$$('//div[@class="b-deliverytime--col"]//div')
+        const columns = await ((await this.page.waitForSelector(this.checkoutDeliveryTable)).$$('//div[@class="b-deliverytime--col"]//div'))
         const tableTexts: Array<string> = []
         for (let i = 0; i < columns.length; i++) {
             tableTexts.push(await columns[i].textContent())

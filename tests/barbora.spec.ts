@@ -24,7 +24,7 @@ test.describe('Barbora tests', () => {
         await test.step('Select shop', async () => {
             await barboraFront.clickVilnius()
             await barboraFront.clickStandardBarboraEshop()
-            await barboraFront.acceptAllCoocies()
+            await barboraFront.acceptAllCookies()
         })
 
         await test.step('Login to account', async () => {
@@ -41,10 +41,10 @@ test.describe('Barbora tests', () => {
             await barboraProductPage.clickAddToCart()
             await barboraProductPage.ageModal.clickOver20Button()
             await barboraFront.searchFor('lasiniai')
-            await barboraProductsList.clickProduct()
+            await barboraProductsList.clickProduct(2)
             await barboraProductPage.clickAddToCart()
             await barboraFront.searchFor('rugine duona')
-            await barboraProductsList.clickProduct()
+            await barboraProductsList.clickProduct(2)
             await barboraProductPage.clickAddToCart()
             await barboraProductPage.cartSidebar.checkFirstItemInCart()
         })

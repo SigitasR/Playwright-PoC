@@ -2,8 +2,8 @@ import { Page } from "@playwright/test";
 
 export class BarboraProductsList {
     
-    private productListWrapper = async() => this.page.waitForSelector('div.b-products-list--wrapper')
-    private productItems = async() =>  (await this.productListWrapper()).$$('div.b-product--wrap')
+    private productListWrapper = 'div.b-products-list--wrapper'
+    private productItems = 'div.b-product--wrap'
 
     private readonly page: Page
 
@@ -12,7 +12,8 @@ export class BarboraProductsList {
     }
 
     async clickProduct(productNumber: number = 0) {
-        await (await this.productItems())[productNumber].click()
+        const wrapper = await this.page.waitForSelector(this.productListWrapper)
+        await (await wrapper.$$(this.productItems))[productNumber].click()
     }
 
 

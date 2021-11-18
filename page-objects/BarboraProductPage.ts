@@ -7,8 +7,8 @@ export class BarboraProductPage {
     ageModal: BarboraAgeModal
     cartSidebar: BarboraCartSidebar
 
-    private itemPrice = async () => this.page.locator('div.b-product-info--price-and-quantity span[itemprop="price"]')
-    private addToCartButton = async() => this.page.locator('div.b-product-info--price-and-quantity div.b-product-cart-link button.c-btn--brand-primary')
+    private itemPrice = 'div.b-product-info--price-and-quantity span[itemprop="price"]'
+    private addToCartButton = 'div.b-product-info--price-and-quantity div.b-product-cart-link button.c-btn--brand-primary'
 
     private readonly page: Page
 
@@ -19,7 +19,9 @@ export class BarboraProductPage {
     }
 
     async clickAddToCart() {
-        await (await this.addToCartButton()).click()
+        await this.page
+            .locator(this.addToCartButton)
+            .click()
     }
 
 }

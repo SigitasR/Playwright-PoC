@@ -2,8 +2,8 @@ import { Page } from "@playwright/test";
 
 export class BarboraAgeModal {
 
-    private modalBody = async () => this.page.locator('div.b-alert--modal div.modal-content')
-    private over20Button = async () => (await this.modalBody()).locator('button.c-btn').nth(0)
+    private modalBody = 'div.b-alert--modal div.modal-content'
+    private over20Button = 'button.c-btn'
 
     private readonly page: Page
 
@@ -12,7 +12,11 @@ export class BarboraAgeModal {
     }
 
     async clickOver20Button() {
-        await (await this.over20Button()).click()
+        await this.page
+            .locator(this.modalBody)
+            .locator(this.over20Button)
+            .nth(0)
+            .click()
     }
 
 }
