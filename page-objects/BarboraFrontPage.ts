@@ -1,9 +1,11 @@
 import { Page } from "@playwright/test";
 import { BarboraLoginModal } from "./components/BarboraLoginModal";
+import {BarboraClearCartModal} from "./components/BarboraClearCartModal";
 
 export class BarboraFrontPage {
 
     loginModal: BarboraLoginModal
+    clearCart: BarboraClearCartModal
 
     private vilniusCountyButton = 'button[data-county="vilnius"]'
     private standardBarboraEshopButton = 'button[class="link-to-page-btn "]'
@@ -14,6 +16,7 @@ export class BarboraFrontPage {
 
     constructor(private readonly page: Page) {
         this.loginModal = new BarboraLoginModal(this.page)
+        this.clearCart = new BarboraClearCartModal(this.page)
     }
 
     async acceptAllCookies() {
