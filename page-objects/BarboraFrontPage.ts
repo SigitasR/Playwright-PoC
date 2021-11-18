@@ -9,7 +9,7 @@ export class BarboraFrontPage {
     private standardBarboraEshopButton = async () => this.page.locator("button[class='link-to-page-btn ']").nth(0)
     private allowCookiesButton = async () => this.page.locator('id=CybotCookiebotDialogBodyLevelButtonLevelOptinAllowAll')
     private loginLink = async () => this.page.locator("button.b-login-register--login").nth(1);
-    private buyButton = async () => this.page.locator('button').locator("text=Pirkti")
+    private buyButton = async () => this.page.locator('div.b-sidebar-bottom button.b-sidebar-bottom--purchase-btn')
     private searchInput = async () => this.page.locator('header input.b-search')
 
     readonly page: Page

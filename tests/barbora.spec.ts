@@ -19,7 +19,7 @@ test.describe('Barbora tests', () => {
         barboraProductPage = new BarboraProductPage(page)
     })
 
-    test('Should check available delivery times at checkout', async () => {
+    test('Should check available delivery times at checkout', async ({page}) => {
 
         await test.step('Select shop', async () => {
             await barboraFront.clickVilnius()
@@ -35,7 +35,7 @@ test.describe('Barbora tests', () => {
         })
         
         await test.step('Fill cart', async () => {
-            await barboraFront.searchFor('blue label')
+            await barboraFront.searchFor('fujimi')
             await barboraProductsList.clickProduct()
             await barboraProductPage.ageModal.clickOver20Button()
             await barboraProductPage.clickAddToCart()
@@ -47,7 +47,6 @@ test.describe('Barbora tests', () => {
             await barboraProductsList.clickProduct()
             await barboraProductPage.clickAddToCart()
             await barboraProductPage.cartSidebar.checkFirstItemInCart()
-            expect(true).toBeFalsy()
         })
 
         await test.step('Go to checkout', async () => {

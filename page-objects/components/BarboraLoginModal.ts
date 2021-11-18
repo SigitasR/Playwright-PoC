@@ -2,9 +2,9 @@ import { Page } from "@playwright/test";
 
 export class BarboraLoginModal {
 
-    private emailInput = async () => this.page.locator('id=b-login-email')
-    private passwordInput = async () => this.page.locator('id=b-login-password')
-    private loginModalButton = async () => this.page.locator("button.b-login-form--login-button")
+    private emailInput = async () => this.page.locator('id=email')
+    private passwordInput = async () => this.page.locator('id=password')
+    private loginModalButton = async () => this.page.locator("button[type=submit]")
 
     private readonly page: Page
 
@@ -22,7 +22,7 @@ export class BarboraLoginModal {
 
     async clickLoginButton() {
         await (await this.loginModalButton()).click()
-        await this.page.waitForSelector('button.b-login-form--login-button', {state: 'detached'})
+        await this.page.waitForSelector('button[type=submit]', {state: 'detached'})
     }
 
 }

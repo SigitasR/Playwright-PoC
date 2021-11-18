@@ -8,7 +8,7 @@ const config: PlaywrightTestConfig = {
         video: 'off',
         screenshot: 'on'
     },
-    reporter: [['./node_modules/allure-playwright'], ['list'], ['junit']],
+    reporter: [['./node_modules/allure-playwright'], ['list']],
 
     projects: [
         {
