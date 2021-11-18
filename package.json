@@ -11,8 +11,8 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@playwright/test": "^1.14.0",
+    "@playwright/test": "^1.16.3",
     "allure-commandline": "^2.13.8",
-    "allure-playwright": "^2.0.0-beta.11"
+    "allure-playwright": "^2.0.0-beta.14"
   }
 }
