@@ -2,7 +2,7 @@ import { Page } from "@playwright/test";
 
 export class BarboraLoginModal {
 
-    private emailInput = async () => this.page.locator('id=email')
+    private emailInput = 'id=email'
     private passwordInput = async () => this.page.locator('id=password')
     private loginModalButton = async () => this.page.locator("button[type=submit]")
 
@@ -13,7 +13,8 @@ export class BarboraLoginModal {
     }
 
     async fillEmail(email: string) {
-        await (await this.emailInput()).fill(email)
+        await this.page.locator(this.emailInput).fill(email)
+        //await (await this.emailInput()).fill(email)
     }
 
     async fillPassword(password: string) {
