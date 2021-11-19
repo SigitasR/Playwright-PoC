@@ -4,7 +4,6 @@ const config: PlaywrightTestConfig = {
 
     timeout: 60000,
     use: {
-        baseURL: 'https://barbora.lt',
         video: 'off',
         screenshot: 'on'
     },

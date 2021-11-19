@@ -6,6 +6,7 @@ import {BarboraProductsList} from '../page-objects/components/BarboraProductsLis
 import {BarboraCartSidebar} from "../page-objects/components/BarboraCartSidebar";
 
 test.describe('Barbora tests', () => {
+test.use({baseURL: 'https://www.barbora.lt'})
 
     let front: BarboraFrontPage
     let checkout: BarboraCheckoutPage
