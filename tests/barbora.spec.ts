@@ -4,9 +4,10 @@ import {BarboraFrontPage} from '../page-objects/BarboraFrontPage'
 import {BarboraProductPage} from '../page-objects/BarboraProductPage'
 import {BarboraProductsList} from '../page-objects/components/BarboraProductsList'
 import {BarboraCartSidebar} from "../page-objects/components/BarboraCartSidebar";
+import {cookie} from "../helpers/CookieHelper";
 
 test.describe('Barbora tests', () => {
-test.use({baseURL: 'https://www.barbora.lt'})
+    test.use({baseURL: 'https://barbora.lt'})
 
     let front: BarboraFrontPage
     let checkout: BarboraCheckoutPage
@@ -15,6 +16,7 @@ test.use({baseURL: 'https://www.barbora.lt'})
     let cartSidebar: BarboraCartSidebar
 
     test.beforeEach(async ({page}) => {
+        await cookie.setRegionCookie(page)
         await page.goto('/')
         front = new BarboraFrontPage(page)
         checkout = new BarboraCheckoutPage(page)
@@ -25,13 +27,8 @@ test.use({baseURL: 'https://www.barbora.lt'})
 
     test('Should check available delivery times at checkout', async ({page}) => {
 
-        await test.step('Select shop', async () => {
-            await front.clickVilnius()
-            await front.clickStandardBarboraEshop()
-            await front.acceptAllCookies()
-        })
-
         await test.step('Login to account', async () => {
+            await front.acceptAllCookies()
             await front.clickLoginLink()
             await front.loginModal.fillEmail(process.env.BARBORA_EMAIL)
             await front.loginModal.fillPassword(process.env.BARBORA_PASS)
@@ -44,11 +41,11 @@ test.use({baseURL: 'https://www.barbora.lt'})
             await productPage.ageModal.clickOver20Button()
             await productPage.clickAddToCart()
             await productPage.ageModal.clickOver20Button()
-            await front.searchFor('lasiniai')
-            await productsList.clickProduct(2)
+            await front.searchFor('jautiena')
+            await productsList.clickProduct(1)
             await productPage.clickAddToCart()
             await front.searchFor('rugine duona')
-            await productsList.clickProduct(2)
+            await productsList.clickProduct(1)
             await productPage.clickAddToCart()
             await cartSidebar.checkFirstItemInCart()
         })

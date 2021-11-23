@@ -1,6 +1,5 @@
 import { Page } from "@playwright/test";
 import { BarboraAgeModal } from "./components/BarboraAgeModal";
-import { BarboraCartSidebar } from "./components/BarboraCartSidebar";
 
 export class BarboraProductPage {
 
