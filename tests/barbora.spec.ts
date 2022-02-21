@@ -56,7 +56,7 @@ test.describe('Barbora tests', () => {
         })
 
         await test.step('Check delivery table', async () => {
-            await checkout.lookForCartTable()
+            await checkout.checkIfCartTableVisible()
             await checkout.clickNextButton()
             await checkout.checkDeliveryTable()
         })

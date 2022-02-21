@@ -13,8 +13,8 @@ export class BarboraCheckoutPage {
         await this.checkoutNextButton.click()
     }
 
-    async lookForCartTable() {
-        await expect(this.checkoutCartTable).toBeVisible()
+    async checkIfCartTableVisible() {
+        expect(this.checkoutCartTable).toBeVisible()
     }
 
     async checkDeliveryTable() {
