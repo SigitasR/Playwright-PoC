@@ -1,59 +1,51 @@
-import { Page } from "@playwright/test";
+import { Locator, Page } from "@playwright/test";
 import { BarboraLoginModal } from "./components/BarboraLoginModal";
-import {BarboraClearCartModal} from "./components/BarboraClearCartModal";
+import { BarboraClearCartModal } from "./components/BarboraClearCartModal";
+import { BarboraSpecialOfferSection } from "./components/BarboraSpecialOfferSection";
 
 export class BarboraFrontPage {
 
-    loginModal: BarboraLoginModal
-    clearCart: BarboraClearCartModal
+    loginModal: BarboraLoginModal = new BarboraLoginModal(this.page)
+    clearCart: BarboraClearCartModal = new BarboraClearCartModal(this.page)
+    specialOffers: BarboraSpecialOfferSection = new BarboraSpecialOfferSection(this.page)
 
-    private vilniusCountyButton = 'button[data-county="vilnius"]'
-    private standardBarboraEshopButton = 'button[class="link-to-page-btn "]'
-    private allowCookiesButton = 'id=CybotCookiebotDialogBodyLevelButtonLevelOptinAllowAll'
-    private loginLink = 'button.b-login-register--login'
-    private buyButton = 'div.b-sidebar-bottom button.b-sidebar-bottom--purchase-btn'
-    private searchInput = 'header input.b-search'
+    private vilniusCountyButton: Locator = this.page.locator('button[data-county="vilnius"]')
+    private standardBarboraEshopButton: Locator = this.page.locator('button[class="link-to-page-btn "]')
+    private allowCookiesButton: Locator = this.page.locator('id=CybotCookiebotDialogBodyLevelButtonLevelOptinAllowAll')
+    private loginLink: Locator = this.page.locator('button.b-login-register--login')
+    private buyButton: Locator = this.page.locator('div.b-sidebar-bottom button.b-sidebar-bottom--purchase-btn')
+    private searchInput: Locator = this.page.locator('header input.b-search')
 
     constructor(private readonly page: Page) {
-        this.loginModal = new BarboraLoginModal(this.page)
-        this.clearCart = new BarboraClearCartModal(this.page)
     }
 
     async acceptAllCookies() {
-        await this.page
-            .locator(this.allowCookiesButton)
-            .click()
+        await this.allowCookiesButton.click()
     }
 
     async clickVilnius() {
-        await this.page
-            .locator(this.vilniusCountyButton)
-            .click()
+        await this.vilniusCountyButton.click()
     }
 
     async clickStandardBarboraEshop() {
-        await this.page
-            .locator(this.standardBarboraEshopButton)
+        await this.standardBarboraEshopButton
             .nth(0)
             .click()
     }
 
     async clickLoginLink() {
-        await this.page
-            .locator(this.loginLink)
+        await this.loginLink
             .nth(1)
             .click()
     }
 
     async clickBuyButton() {
-        await this.page
-            .locator(this.buyButton)
-            .click()
+        await this.buyButton.click()
     }
 
     async searchFor(product: string) {
-        await this.page.locator(this.searchInput).fill(product)
-        await this.page.locator(this.searchInput).press('Enter')
+        await this.searchInput.fill(product)
+        await this.searchInput.press('Enter')
     }
 
 }

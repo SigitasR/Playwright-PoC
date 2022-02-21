@@ -1,16 +1,18 @@
-import { Page } from "@playwright/test";
+import { Locator, Page } from "@playwright/test";
 
 export class BarboraProductsList {
-    
-    private productListWrapper = 'div.b-products-list--wrapper'
-    private productItems = 'div.b-product--wrap'
+
+    private productListWrapper: Locator = this.page.locator('div.b-products-list--wrapper').nth(0)
 
     constructor(private readonly page: Page) {
     }
 
     async clickProduct(productNumber: number = 0) {
-        const wrapper = await this.page.waitForSelector(this.productListWrapper)
-        await (await wrapper.$$(this.productItems))[productNumber].click()
+        await this.productListWrapper.waitFor({ state: 'visible' })
+        await this.productListWrapper
+            .locator('div.b-product--wrap')
+            .nth(productNumber)
+            .click()
     }
 
 

@@ -7,7 +7,7 @@ import {BarboraCartSidebar} from "../page-objects/components/BarboraCartSidebar"
 import {cookie} from "../helpers/CookieHelper";
 
 test.describe('Barbora tests', () => {
-    test.use({baseURL: 'https://barbora.lt'})
+    //test.use({baseURL: 'https://barbora.lt'})
 
     let front: BarboraFrontPage
     let checkout: BarboraCheckoutPage

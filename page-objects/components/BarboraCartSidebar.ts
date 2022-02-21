@@ -1,26 +1,23 @@
-import {Page} from "@playwright/test";
-import {BarboraClearCartModal} from "./BarboraClearCartModal";
+import { expect, Locator, Page } from "@playwright/test";
+import { BarboraClearCartModal } from "./BarboraClearCartModal";
 
 export class BarboraCartSidebar {
 
-    confirmModal: BarboraClearCartModal
+    confirmModal: BarboraClearCartModal = new BarboraClearCartModal(this.page)
 
-    private cartSidebar = 'div.b-cart--scrollable-blocks-wrap--cart-content'
-    private clearCartButton = 'div.b-cart--scrollable-blocks-wrap--cart-header button'
-    private cartItems = 'div.b-next-cart-item'
+    private cartSidebar: Locator = this.page.locator('div.b-cart--scrollable-blocks-wrap--cart-content')
+    private clearCartButton: Locator = this.page.locator('div.b-cart--scrollable-blocks-wrap--cart-header button')
 
     constructor(private readonly page: Page) {
-        this.confirmModal = new BarboraClearCartModal(page)
     }
 
-    // TODO: implement some assert
     async checkFirstItemInCart() {
-        const sidebar = await this.page.waitForSelector(this.cartSidebar)
-        console.log(await (await sidebar.$$(this.cartItems))[0].textContent())
+        await this.cartSidebar.waitFor({ state: 'visible' })
+        expect(this.cartSidebar.locator('div.b-next-cart-item').nth(0)).toBeVisible()
     }
 
     async clickClearCart() {
-        await this.page.locator(this.clearCartButton).click()
+        await this.clearCartButton.click()
     }
 
 }
