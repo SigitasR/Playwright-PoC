@@ -1,8 +1,8 @@
 import { Locator, Page } from '@playwright/test';
-import { BarboraLoginModal } from './components/BarboraLoginModal';
 import { BarboraClearCartModal } from './components/BarboraClearCartModal';
-import { BarboraSpecialOfferSection } from './components/BarboraSpecialOfferSection';
 import { BarboraHeader } from './components/BarboraHeader';
+import { BarboraLoginModal } from './components/BarboraLoginModal';
+import { BarboraSpecialOfferSection } from './components/BarboraSpecialOfferSection';
 
 export class BarboraFrontPage {
     loginModal: BarboraLoginModal = new BarboraLoginModal(this.page);

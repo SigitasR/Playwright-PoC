@@ -1,10 +1,10 @@
 import { test } from '@playwright/test';
-import { BarboraFrontPage } from '../page-objects/BarboraFrontPage';
-import { BarboraProductPage } from '../page-objects/BarboraProductPage';
-import { BarboraProductsList } from '../page-objects/components/BarboraProductsList';
-import { BarboraCartSidebar } from '../page-objects/components/BarboraCartSidebar';
 import { api } from '../helpers/ApiHelper';
 import { cookie } from '../helpers/CookieHelper';
+import { BarboraFrontPage } from '../page-objects/BarboraFrontPage';
+import { BarboraProductPage } from '../page-objects/BarboraProductPage';
+import { BarboraCartSidebar } from '../page-objects/components/BarboraCartSidebar';
+import { BarboraProductsList } from '../page-objects/components/BarboraProductsList';
 
 test.describe('Barbora tests', () => {
     test.use({ baseURL: 'https://barbora.lt' });

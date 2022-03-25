@@ -1,8 +1,8 @@
 import { test } from '@playwright/test';
+import { api } from '../helpers/ApiHelper';
+import { cookie } from '../helpers/CookieHelper';
 import { BarboraFrontPage } from '../page-objects/BarboraFrontPage';
 import { BarboraProductPage } from '../page-objects/BarboraProductPage';
-import { cookie } from '../helpers/CookieHelper';
-import { api } from '../helpers/ApiHelper';
 
 test.describe('Barbora tests', () => {
     let front: BarboraFrontPage;

@@ -1,4 +1,4 @@
-import { Page, expect, Locator } from '@playwright/test';
+import { expect, Locator, Page } from '@playwright/test';
 
 export class BarboraCheckoutPage {
     private checkoutNextButton: Locator = this.page.locator('.b-checkout--continue-btn');

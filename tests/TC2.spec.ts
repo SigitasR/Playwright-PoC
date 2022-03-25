@@ -1,8 +1,8 @@
 import { test } from '@playwright/test';
-import { BarboraFrontPage } from '../page-objects/BarboraFrontPage';
-import { cookie } from '../helpers/CookieHelper';
-import { BarboraRecipesPage } from '../page-objects/BarboraRecipesPage';
 import { api } from '../helpers/ApiHelper';
+import { cookie } from '../helpers/CookieHelper';
+import { BarboraFrontPage } from '../page-objects/BarboraFrontPage';
+import { BarboraRecipesPage } from '../page-objects/BarboraRecipesPage';
 import { BarboraCartSidebar } from '../page-objects/components/BarboraCartSidebar';
 
 test.describe('Barbora tests', () => {
