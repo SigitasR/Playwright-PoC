@@ -5,10 +5,9 @@ import {BarboraProductPage} from '../page-objects/BarboraProductPage'
 import {BarboraProductsList} from '../page-objects/components/BarboraProductsList'
 import {BarboraCartSidebar} from "../page-objects/components/BarboraCartSidebar";
 import {cookie} from "../helpers/CookieHelper";
+import { api } from '../helpers/ApiHelper'
 
 test.describe('Barbora tests', () => {
-    //test.use({baseURL: 'https://barbora.lt'})
-
     let front: BarboraFrontPage
     let checkout: BarboraCheckoutPage
     let productsList: BarboraProductsList
@@ -17,6 +16,7 @@ test.describe('Barbora tests', () => {
 
     test.beforeEach(async ({page}) => {
         await cookie.setRegionCookie(page)
+        await api.login(page, process.env.BARBORA_EMAIL, process.env.BARBORA_PASS)
         await page.goto('/')
         front = new BarboraFrontPage(page)
         checkout = new BarboraCheckoutPage(page)

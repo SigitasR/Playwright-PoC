@@ -2,12 +2,14 @@ import { Locator, Page } from "@playwright/test";
 import { BarboraLoginModal } from "./components/BarboraLoginModal";
 import { BarboraClearCartModal } from "./components/BarboraClearCartModal";
 import { BarboraSpecialOfferSection } from "./components/BarboraSpecialOfferSection";
+import { BarboraHeader } from "./components/BarboraHeader";
 
 export class BarboraFrontPage {
 
     loginModal: BarboraLoginModal = new BarboraLoginModal(this.page)
     clearCart: BarboraClearCartModal = new BarboraClearCartModal(this.page)
     specialOffers: BarboraSpecialOfferSection = new BarboraSpecialOfferSection(this.page)
+    header: BarboraHeader = new BarboraHeader(this.page)
 
     private vilniusCountyButton: Locator = this.page.locator('button[data-county="vilnius"]')
     private standardBarboraEshopButton: Locator = this.page.locator('button[class="link-to-page-btn "]')
