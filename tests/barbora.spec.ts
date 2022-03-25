@@ -36,7 +36,7 @@ test.describe('Barbora tests', () => {
         })
 
         await test.step('Fill cart', async () => {
-            await front.searchFor('fujimi')
+            await front.searchFor('jim beam burbon')
             await productsList.clickProduct()
             await productPage.ageModal.clickOver20Button()
             await productPage.clickAddToCart()

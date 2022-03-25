@@ -8,7 +8,10 @@ export class BarboraBuyRecipeIngredientsModal {
     constructor(private readonly page: Page) {        
     }
 
-    async assertSumOfSelectedItems() {
+    async clickBuyButton() {
+        await this.recipeModalContainer
+            .locator('div.modal-footer button')
+            .click()
     }
 
 }

@@ -35,7 +35,7 @@ test.describe('Barbora tests', () => {
         })
 
         await test.step('Add beer to cart', async () => {
-            await front.searchFor('sakiskiu alus')
+            await front.searchFor('grimbergen')
             await productsList.clickProduct()
             await productPage.ageModal.clickOver20Button()
             await productPage.clickAddToCart()
