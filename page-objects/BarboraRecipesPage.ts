@@ -7,7 +7,7 @@ export class BarboraRecipesPage {
     recipeDropdown = new BarboraRecipeDropdown(this.page);
     categoryView = new BarboraRecipesCategoryView(this.page);
     recipeView = new BarboraRecipeView(this.page);
-    
+
     private recipeCategoriesButton: Locator = this.page.locator('button.b-recipes-cats-bar--action-btn');
 
     constructor(private readonly page: Page) {}

@@ -7,8 +7,6 @@ import { BarboraCartSidebar } from '../page-objects/components/BarboraCartSideba
 import { BarboraProductsList } from '../page-objects/components/BarboraProductsList';
 
 test.describe('Barbora tests', () => {
-    //test.use({baseURL: 'https://barbora.lt'})
-
     let front: BarboraFrontPage;
     let checkout: BarboraCheckoutPage;
     let productsList: BarboraProductsList;

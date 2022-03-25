@@ -3,7 +3,7 @@ import { BarboraBuyRecipeIngredientsModal } from './BarboraBuyRecipeIngredientsM
 
 export class BarboraRecipeView {
     modal = new BarboraBuyRecipeIngredientsModal(this.page);
-    
+
     private buyIngredientsButton: Locator = this.page.locator('button.c-btn--block');
 
     constructor(private readonly page: Page) {}
