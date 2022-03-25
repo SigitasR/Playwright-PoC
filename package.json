@@ -6,15 +6,20 @@
   "scripts": {
     "allure:generate": "npx allure generate ./allure-results --clean",
     "allure:open": "npx allure open ./allure-report",
-    "allure:serve": "npx allure serve"
+    "allure:serve": "npx allure serve",
+    "format": "prettier --write .",
+    "lint": "eslint --fix ."
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "@playwright/test": "^1.19.1",
     "@types/dinero.js": "^1.9.0",
+    "@typescript-eslint/eslint-plugin": "^5.16.0",
     "allure-commandline": "^2.13.8",
-    "allure-playwright": "^2.0.0-beta.14"
+    "allure-playwright": "^2.0.0-beta.14",
+    "eslint": "^8.11.0",
+    "prettier": "^2.6.1"
   },
   "dependencies": {
     "dinero.js": "^1.9.1"

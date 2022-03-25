@@ -1,17 +1,11 @@
-import { Locator, Page } from "@playwright/test"
-
+import { Locator, Page } from '@playwright/test';
 
 export class BarboraBuyRecipeIngredientsModal {
+    private recipeModalContainer: Locator = this.page.locator('div.b-recipe-items-modal');
 
-    private recipeModalContainer: Locator = this.page.locator('div.b-recipe-items-modal')
-
-    constructor(private readonly page: Page) {        
-    }
+    constructor(private readonly page: Page) {}
 
     async clickBuyButton() {
-        await this.recipeModalContainer
-            .locator('div.modal-footer button')
-            .click()
+        await this.recipeModalContainer.locator('div.modal-footer button').click();
     }
-
 }

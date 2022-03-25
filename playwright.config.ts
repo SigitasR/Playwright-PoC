@@ -1,12 +1,11 @@
 import { PlaywrightTestConfig } from '@playwright/test';
 
 const config: PlaywrightTestConfig = {
-
     timeout: 60000,
     use: {
         video: 'off',
         screenshot: 'on',
-        baseURL: process.env.BASE_URL ? process.env.BASE_URL : 'https://barbora.lt'
+        baseURL: process.env.BASE_URL ? process.env.BASE_URL : 'https://barbora.lt',
     },
     reporter: [['./node_modules/allure-playwright'], ['list'], ['html']],
 
@@ -16,16 +15,16 @@ const config: PlaywrightTestConfig = {
             use: {
                 browserName: 'chromium',
                 video: 'on',
-                headless: false
+                headless: false,
             },
         },
-        
+
         {
             name: 'chromium-headless',
             use: {
                 browserName: 'chromium',
                 video: 'on',
-                headless: true
+                headless: true,
             },
         },
 
@@ -34,7 +33,7 @@ const config: PlaywrightTestConfig = {
             use: {
                 browserName: 'firefox',
                 video: 'on',
-                headless: false
+                headless: false,
             },
         },
 
@@ -43,7 +42,7 @@ const config: PlaywrightTestConfig = {
             use: {
                 browserName: 'firefox',
                 video: 'on',
-                headless: true
+                headless: true,
             },
         },
 
@@ -52,7 +51,7 @@ const config: PlaywrightTestConfig = {
             use: {
                 browserName: 'webkit',
                 video: 'on',
-                headless: false
+                headless: false,
             },
         },
 
@@ -61,10 +60,9 @@ const config: PlaywrightTestConfig = {
             use: {
                 browserName: 'webkit',
                 video: 'on',
-                headless: true
+                headless: true,
             },
         },
-
     ],
 };
 export default config;

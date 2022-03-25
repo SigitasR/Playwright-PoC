@@ -1,0 +1,9 @@
+node_modules/
+allure-results/
+playwright-report/
+test-results/
+.eslintrc.js
+.gitignore
+package-lock.json
+package.json
+README.md
