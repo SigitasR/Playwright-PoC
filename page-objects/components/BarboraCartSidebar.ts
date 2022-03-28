@@ -1,5 +1,6 @@
 import { expect, Locator, Page } from '@playwright/test';
 import { priceHelper } from '../../helpers/PriceHelper';
+import { StoreSettings } from '../../helpers/StoreSettings';
 import { BarboraClearCartModal } from './BarboraClearCartModal';
 
 export class BarboraCartSidebar {
@@ -21,15 +22,14 @@ export class BarboraCartSidebar {
         expect(this.cartSidebar.locator('div.b-next-cart-item').nth(0)).toBeVisible();
     }
 
-    async assertTotalPrice() {
+    async assertTotalPrice(packingPrice = StoreSettings.PACKING_PRICE) {
         const prices = await this.getCartItemPriceTexts();
-        const packingPrice = '€0,49';
 
         prices.push(packingPrice);
 
-        const expectedPrice = priceHelper.sumPrices(prices);
+        const expectedTotalPrice = priceHelper.getFormatedSum(prices);
 
-        expect(await this.totalPrice.textContent()).toEqual(expectedPrice);
+        expect(await this.totalPrice.textContent()).toEqual(expectedTotalPrice);
     }
 
     private async getCartItemPriceTexts(): Promise<string[]> {
