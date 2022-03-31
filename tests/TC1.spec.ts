@@ -16,8 +16,8 @@ test.describe('Barbora tests', () => {
         productPage = new BarboraProductPage(page);
     });
 
-    test('Should check available delivery times at checkout1', async () => {
-        await test.step('Check special offers1', async () => {
+    test('Should check product card details', async () => {
+        await test.step('Check product card', async () => {
             await front.acceptAllCookies();
             await front.specialOffers.checkIfAllProductCardDetailsAreDisplayed();
             await front.specialOffers.clickSpecialOffer();

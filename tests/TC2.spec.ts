@@ -21,8 +21,8 @@ test.describe('Barbora tests', () => {
         cartSidebar = new BarboraCartSidebar(page);
     });
 
-    test('Should check available delivery times at checkout', async () => {
-        await test.step('Check special offers1', async () => {
+    test('Should add recipe ingredients to shopping cart and verify total price', async () => {
+        await test.step('Add products to cart', async () => {
             await front.acceptAllCookies();
             await front.header.checkIfMenuContainsThisNumberOfItems(6);
             await front.header.clickMenuItem('Receptai');
